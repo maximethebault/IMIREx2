@@ -40,4 +40,5 @@ crashlytics.properties
 crashlytics-build.properties
 fabric.properties
 
-index
+/index/
+/build/
