@@ -1,0 +1,28 @@
+group 'org.tud.imir'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'application'
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+    compile 'de.ruedigermoeller:fst:2.47'
+}
+
+
+task fatJar(type: Jar) {
+    manifest {
+        attributes('Implementation-Title': 'IMIR Ex 2',
+                'Implementation-Version': version,
+                'Main-Class': 'org.tud.imir.ex2.ui.Main',
+        )
+    }
+    baseName = project.name + '-all'
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+}
