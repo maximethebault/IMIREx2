@@ -97,7 +97,7 @@ public class QueryController {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Could not read the file");
             alert.setHeaderText(null);
-            alert.setContentText("There was an error while trying to read the input file");
+            alert.setContentText("There was an error while trying to read the input file. Is the matching XML file present?");
 
             alert.showAndWait();
         }
